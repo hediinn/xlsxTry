@@ -1,5 +1,4 @@
 from openpyxl import Workbook,load_workbook,chart
-from openpyxl.descriptors.base import NoneSet
 from openpyxl.reader import excel
 from openpyxl.worksheet.cell_range import CellRange
 import numpy as np
