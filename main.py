@@ -3,6 +3,7 @@ from openpyxl.reader import excel
 from openpyxl.worksheet.cell_range import CellRange
 import numpy as np
 import matplotlib.pyplot as plt
+import counter
 
 #This is a class for openpyxl
 #This is mostly becouse the dataset is not easy to import and this makes it easier to import diffrent files
@@ -35,14 +36,22 @@ class xels:
                 elif cell.row == 5:
                    self.y.append(cell.value)
 
+def pltTest():
+    e=xels("AM02010.xlsx")
+    e.printText()
+    arb=plt.plot(e.x,e.y,'ro-', linewidth=1,label='arbeiðsleys')
+    d=xels("AL01020 pens.xlsx")
+    d.pensPrint()
+    pen=plt.plot(d.x,d.y,'go-', linewidth=1,label='Pensjóistar')
+    plt.legend()
+    plt.title('Arbeiðsles í mun til Pensjóistar')
+    plt.show()
+
+if __name__=="__main__":
+    inPut=input()
+    if inPut =="plt":
+        pltTest()
+    elif inPut =="counter":
+        counter.ct()
 
 
-e=xels("AM02010.xlsx")
-e.printText()
-arb=plt.plot(e.x,e.y,'ro-', linewidth=1,label='arbeiðsleys')
-d=xels("AL01020 pens.xlsx")
-d.pensPrint()
-pen=plt.plot(d.x,d.y,'go-', linewidth=1,label='Pensjóistar')
-plt.legend()
-plt.title('Arbeiðsles í mun til Pensjóistar')
-plt.show()
