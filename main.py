@@ -4,6 +4,7 @@ from openpyxl.worksheet.cell_range import CellRange
 import numpy as np
 import matplotlib.pyplot as plt
 import counter
+import csv
 
 #This is a class for openpyxl
 #This is mostly becouse the dataset is not easy to import and this makes it easier to import diffrent files
@@ -47,7 +48,18 @@ def pltTest():
     plt.title('Arbeiðsles í mun til Pensjóistar')
     plt.show()
 
+
+class csv_Reader:
+    def __init__(self,dirc:str):
+        self.dirc= dirc
+        with open(dirc, newline='') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            for row in spamreader:
+                print(', '.join(row))
+
+
 if __name__=="__main__":
+    csv_Reader('datasets/birth_death.csv')
     inPut=input()
     if inPut =="plt":
         pltTest()

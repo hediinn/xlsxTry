@@ -1,1 +1,5 @@
-Statisic worspace.code-workspace
+*.code-workspace
+__pycache__/
+auto/
+datasets/
+.vs/*
